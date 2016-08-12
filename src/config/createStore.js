@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import addListeners from './addListeners';
 import thunk from 'redux-thunk'
 import mainReducer from '../reducers';
 
@@ -7,6 +8,8 @@ export default function configureStore(initialState) {
     mainReducer,
     applyMiddleware(thunk)
   );
+
+  addListeners(store);
 
   return store;
 }
