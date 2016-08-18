@@ -1,7 +1,8 @@
-import { IS_FETCHING, RECEIVE_POSTS } from '../actions';
+import { IS_FETCHING, RECEIVE_IDS, RECEIVE_ITEM } from '../actions';
 
 const defaultState = {
-  posts: [],
+  topIds: [],
+  cachedItems: {},
   loading: false
 };
 
@@ -12,11 +13,19 @@ export default function dataReducer(state = defaultState, action) {
         ...state,
         loading: true
       };
-    case RECEIVE_POSTS:
+    case RECEIVE_IDS:
       return {
         ...state,
-        posts: [...action.posts],
+        topIds: [...action.ids],
         loading: false
+      };
+    case RECEIVE_ITEM:
+      return {
+        ...state,
+        cachedItems: {
+          ...state.cachedItems,
+          [action.id]: action.item
+        }
       };
     default:
       return state;
