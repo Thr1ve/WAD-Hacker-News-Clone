@@ -1,5 +1,9 @@
-import { fetchTopStoryIds, fetchItem, fetchItems } from '../config/firebase';
 import { addVisibleItemIds } from './ui';
+
+import {
+  objectify,
+  fetchTopStoryIds, fetchItem, fetchItems
+} from '../lib';
 
 export const IS_FETCHING_LIST = 'IS_FETCHING_LIST';
 export const isFetchingList = () => ({ type: IS_FETCHING_LIST });
@@ -35,10 +39,3 @@ export const getTopIds = () => (dispatch, getState) => {
     return Promise.resolve(ids);
   });
 };
-
-function objectifyItemArray(arr) {
-  return arr.reduce((obj, item) => {
-    obj[item.id] = item;
-    return obj;
-  }, {});
-}
