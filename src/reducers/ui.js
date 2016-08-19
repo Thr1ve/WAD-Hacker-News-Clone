@@ -1,4 +1,7 @@
-import { ADD_VISIBLE_ITEM_IDS, SET_VISIBLE_ITEM_IDS } from '../actions';
+import {
+  ADD_VISIBLE_ITEM_IDS, SET_VISIBLE_ITEM_IDS,
+  SET_FEED
+} from '../actions';
 
 const defaultState = {
   visibleItemIds: [],
@@ -16,6 +19,11 @@ export default function uiReducer(state = defaultState, action) {
       return {
         ...state,
         visibleItemIds: [...action.ids]
+      };
+    case SET_FEED:
+      return {
+        ...state,
+        currentFeed: action.feed
       };
     default:
       return state;
