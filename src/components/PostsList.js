@@ -9,9 +9,9 @@ const PostsList = React.createClass({
     return (
       <div className="container">
         {
-          this.props.data.topIds.map((id, i) => {
-            if (this.props.data.cachedItems[id]) {
-              return <Post key={i} post={this.props.data.cachedItems[id]} />
+          this.props.visibleIds.map((id, i) => {
+            if (this.props.data[id]) {
+              return <Post key={i} post={this.props.data[id]} />
             }
             return <Post key={i} post={{url: "loading", title: "loading"}} />;
           })
@@ -22,7 +22,10 @@ const PostsList = React.createClass({
 });
 
 function mapStateToProps(state) {
-  return state;
+  return {
+    data: state.data.cachedItems,
+    visibleIds: state.ui.visibleItemIds
+  };
 }
 
 export default connect(mapStateToProps)(PostsList);
