@@ -10,21 +10,22 @@ export const fetchItem = id => getItemRef(id)
   .once('value')
   .then(snapshot => Promise.resolve(snapshot.val()));
 
+export const fetchItems = ids => Promise.all(ids.map(id => fetchItem(id)));
+
 export const fetchTopStoryIds = () => api.child('topstories')
   .once('value')
   .then(snapshot => Promise.resolve(snapshot.val()));
 
-const fetchTopStoryItems = () => fetchTopStoryIds()
-  .then(ids => Promise.all(ids.map(id => fetchItem(id))));
+const fetchTopStoryItems = () => fetchTopStoryIds().then(ids => fetchItems(ids));
 
-console.log('starting');
-console.time('timer');
-
-fetchTopStoryItems().then(items => {
-  console.log(items)
-  console.log('ending');
-  console.timeEnd('timer');
-});
+// console.log('starting');
+// console.time('timer');
+//
+// fetchTopStoryItems().then(items => {
+//   console.log(items)
+//   console.log('ending');
+//   console.timeEnd('timer');
+// });
 
 // The new Firebase API (3.5) requires an apiKey; since there's no way to
 // get one for the public HN API that I've been able to find, we're

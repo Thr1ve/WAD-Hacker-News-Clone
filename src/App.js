@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
-import { getTopIds } from './actions';
+import { init } from './actions';
 import PostsList from './components/PostsList';
 import Header from './components/Header';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(getTopIds());
+    this.props.dispatch(init());
   }
 
   render() {
