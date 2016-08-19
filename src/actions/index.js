@@ -1,1 +1,2 @@
-export * from './data.js';
+export * from './data';
+export * from './ui';
