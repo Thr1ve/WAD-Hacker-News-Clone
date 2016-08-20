@@ -15,10 +15,10 @@ export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
   // get the ids for the new feed and then...
   dispatch(getFeedIds(feedName))
     .then(ids => {
-      const firstPage = ids.slice(0, 19)
+      const firstPage = ids.slice(0, 19);
       // ...display the items we already have
-      dispatch(setVisibleItemIds(firstPage))
+      dispatch(setVisibleItemIds(firstPage));
       // and ask for the rest of them
-      dispatch(getNeededItems(firstPage))
+      dispatch(getNeededItems(firstPage));
     });
 };

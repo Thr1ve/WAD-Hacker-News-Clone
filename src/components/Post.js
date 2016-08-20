@@ -13,4 +13,8 @@ const Post = ({ post }) =>
     </div> */}
   </div>;
 
+Post.propTypes = {
+  post: PropTypes.object
+};
+
 export default Post;

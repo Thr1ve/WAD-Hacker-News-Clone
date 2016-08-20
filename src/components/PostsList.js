@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { getItem } from '../actions';
 import Post from './Post';
 
 const PostsList = React.createClass({
@@ -24,6 +23,12 @@ const PostsList = React.createClass({
     );
   }
 });
+
+PostsList.propTypes = {
+  isLoading: PropTypes.bool,
+  data: PropTypes.object,
+  visibleIds: PropTypes.array
+};
 
 function mapStateToProps(state) {
   return {

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Header = ({ createClickHandler }) =>
   <div className="container">
     <div className="nav">

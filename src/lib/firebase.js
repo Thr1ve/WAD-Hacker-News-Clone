@@ -25,16 +25,8 @@ export const fetchFeedIds = (feed = 'TOP') => api.child(FEEDNAMES[feed] || 'TOP'
   .once('value')
   .then(snapshot => Promise.resolve(snapshot.val()));
 
-const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
-
-// console.log('starting');
-// console.time('timer');
-//
-// fetchTopStoryItems().then(items => {
-//   console.log(items)
-//   console.log('ending');
-//   console.timeEnd('timer');
-// });
+// NOTE: currently unused
+export const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
 
 // The new Firebase API (3.5) requires an apiKey; since there's no way to
 // get one for the public HN API that I've been able to find, we're

@@ -1,5 +1,3 @@
-import { addVisibleItemIds } from './ui';
-
 import {
   objectifyItemArray,
   fetchFeedIds, fetchItem, fetchItems
