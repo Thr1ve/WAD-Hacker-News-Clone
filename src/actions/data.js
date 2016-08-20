@@ -35,7 +35,7 @@ export const getItems = ids => (dispatch, getState) => {
 export const getFeedIds = (feed = 'TOP') => (dispatch, getState) => {
   dispatch(isFetchingList());
   return fetchFeedIds(feed).then(ids => {
-    dispatch(receiveIds(ids, 'TOP'));
+    dispatch(receiveIds(ids, feed));
     return Promise.resolve(ids);
   });
 };
