@@ -24,5 +24,6 @@
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
-  }
+  },
+  "homepage": "http://thr1ve.github.io/WAD-Hacker-News-Clone"
 }
