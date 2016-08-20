@@ -9,7 +9,7 @@ const PostsList = React.createClass({
     return (
       this.props.isLoading ?
         <div className="container">
-          LOADING...
+          LOADING FEED...
         </div> :
         <div className="container">
           {
