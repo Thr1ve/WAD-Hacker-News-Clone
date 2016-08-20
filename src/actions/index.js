@@ -12,13 +12,13 @@ import { setVisibleItemIds, dumpVisibleItemIds } from './ui';
 export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
   // Remove the currently displayed items
   dispatch(dumpVisibleItemIds());
-  // get the ids for the new feed
+  // get the ids for the new feed and then...
   dispatch(getFeedIds(feedName))
     .then(ids => {
       const firstPage = ids.slice(0, 19)
-      // display the items we already have
+      // ...display the items we already have
       dispatch(setVisibleItemIds(firstPage))
-      // and then ask for the rest of them
+      // and ask for the rest of them
       dispatch(getNeededItems(firstPage))
-    })
+    });
 };
