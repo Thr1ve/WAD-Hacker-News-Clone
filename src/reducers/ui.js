@@ -1,11 +1,13 @@
 import {
   ADD_VISIBLE_ITEM_IDS, SET_VISIBLE_ITEM_IDS,
-  SET_FEED, DUMP_VISIBLE_ITEM_IDS
+  SET_FEED, DUMP_VISIBLE_ITEM_IDS,
+  SET_CURRENT_PAGE
 } from '../actions';
 
 const defaultState = {
   visibleItemIds: [],
-  currentFeed: 'TOP'
+  currentFeed: 'TOP',
+  currentPage: 1
 };
 
 export default function uiReducer(state = defaultState, action) {
@@ -18,6 +20,8 @@ export default function uiReducer(state = defaultState, action) {
       return { ...state, visibleItemIds: [] }
     case SET_FEED:
       return { ...state, currentFeed: action.feed };
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.n };
     default:
       return state;
   }
