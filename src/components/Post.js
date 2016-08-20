@@ -8,9 +8,9 @@ const Post = ({ post }) =>
       </p>
       <small>{post.url}</small>
     </div>
-    <div className="media-right">
+    {/* <div className="media-right">
       View Comments
-    </div>
+    </div> */}
   </div>;
 
 export default Post;

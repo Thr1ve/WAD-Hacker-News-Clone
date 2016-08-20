@@ -17,10 +17,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
-          <Header onClick={this.createHandler()}/>
-        </div>
+      <div className="container">
+        <Header createClickHandler={this.createHandler()}/>
         <PostsList />
       </div>
     );
