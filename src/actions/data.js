@@ -26,10 +26,26 @@ export const getItem = id => (dispatch, getState) => {
 };
 
 export const getItems = ids => (dispatch, getState) => {
-  return fetchItems(ids).then(items => {
-    dispatch(receiveItems(objectifyItemArray(items)))
-    return Promise.resolve();
-  });
+  return fetchItems(ids)
+    .then(items => {
+      const asObject = objectifyItemArray(items);
+      dispatch(receiveItems(asObject))
+      return Promise.resolve();
+    });
+};
+
+export const getNeededItems = ids => (dispatch, getState) => {
+  // grab our cachedItems from the current state
+  const { cachedItems } = getState().data
+  // filter out any ids we already have in cachedItems
+  const neededItems = ids.filter(id => !cachedItems[id]);
+  // fetch only the neededItems
+  return fetchItems(neededItems)
+    .then(items => {
+      const asObject = objectifyItemArray(items);
+      dispatch(receiveItems(asObject))
+      return Promise.resolve();
+    });
 };
 
 export const getFeedIds = (feed = 'TOP') => (dispatch, getState) => {

@@ -1,15 +1,24 @@
 export * from './data';
 export * from './ui';
 
-import { getFeedIds, getItems, setVisibleItemIds, dumpVisibleItems } from './';
+import { getFeedIds, getNeededItems } from './data';
+import { setVisibleItemIds, dumpVisibleItemIds } from './ui';
 
-export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
-  dispatch(dumpVisibleItems());
   // TODO: check route to verify which list to fetch (i.e. 'website.com/top', 'website.com/show', etc.)
   //    - default should be 'TOP'
   // `dispatch(checkUrlRoute());`
+  // TODO: add actions to handle paging or infinite scroll
+
+export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
+  // Remove the currently displayed items
+  dispatch(dumpVisibleItemIds());
+  // get the ids for the new feed
   dispatch(getFeedIds(feedName))
-  // TODO: Don't add the entirety of the feed's ids to visibleItemIds -- add actions to handle paging or infinite scroll
-    .then(ids => dispatch(getItems(ids)))
-    .then(() => dispatch(setVisibleItemIds(getState().data.ids[feedName])));
+    .then(ids => {
+      const firstPage = ids.slice(0, 19)
+      // display the items we already have
+      dispatch(setVisibleItemIds(firstPage))
+      // and then ask for the rest of them
+      dispatch(getNeededItems(firstPage))
+    })
 };
