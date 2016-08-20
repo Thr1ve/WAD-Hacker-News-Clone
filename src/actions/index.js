@@ -1,9 +1,10 @@
 export * from './data';
 export * from './ui';
 
-import { getFeedIds, getItems, setVisibleItemIds } from './';
+import { getFeedIds, getItems, setVisibleItemIds, dumpVisibleItems } from './';
 
 export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
+  dispatch(dumpVisibleItems());
   // TODO: check route to verify which list to fetch (i.e. 'website.com/top', 'website.com/show', etc.)
   //    - default should be 'TOP'
   // `dispatch(checkUrlRoute());`

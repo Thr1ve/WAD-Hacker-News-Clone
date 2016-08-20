@@ -6,3 +6,6 @@ export const setVisibleItemIds = ids => ({ type: SET_VISIBLE_ITEM_IDS, ids });
 
 export const SET_FEED = 'SET_FEED';
 export const setFeed = feed => ({ type: SET_FEED, feed });
+
+export const DUMP_VISIBLE_ITEMS = 'DUMP_VISIBLE_ITEMS';
+export const dumpVisibleItems = () => ({ type: DUMP_VISIBLE_ITEMS });
