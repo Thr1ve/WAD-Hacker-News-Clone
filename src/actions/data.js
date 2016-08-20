@@ -1,7 +1,7 @@
 import { addVisibleItemIds } from './ui';
 
 import {
-  objectify,
+  objectifyItemArray,
   fetchTopStoryIds, fetchItem, fetchItems
 } from '../lib';
 
