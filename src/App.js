@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
-import { init } from './actions';
+import { initFeed } from './actions';
 import PostsList from './components/PostsList';
 import Header from './components/Header';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(init());
+    this.props.dispatch(initFeed());
   }
 
   render() {

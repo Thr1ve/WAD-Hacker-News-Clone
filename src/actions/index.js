@@ -3,7 +3,7 @@ export * from './ui';
 
 import { getFeedIds, getItems, addVisibleItemIds } from './';
 
-export const init = (feedName = 'TOP') => (dispatch, getState) => {
+export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
   // TODO: check route to verify which list to fetch (i.e. 'website.com/top', 'website.com/show', etc.)
   //    - default should be 'TOP'
   // `dispatch(checkUrlRoute());`
