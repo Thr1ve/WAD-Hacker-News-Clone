@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import addListeners from './addListeners';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import mainReducer from '../reducers';
@@ -28,7 +27,7 @@ export default function configureStore(initialState) {
     )
   );
 
-  addListeners(store);
+  // TODO: add listeners that subsribe to HN-Firebase API and receive change events?
 
   return store;
 }
