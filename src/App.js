@@ -11,12 +11,16 @@ class App extends Component {
     this.props.dispatch(initFeed());
   }
 
+  createHandler = () => feedName => () => {
+    this.props.dispatch(initFeed(feedName));
+  }
+
   render() {
     // console.log(this.props);
     return (
       <div>
         <div className="container">
-          <Header />
+          <Header onClick={this.createHandler()}/>
         </div>
         <PostsList />
       </div>

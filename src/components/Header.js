@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Header = () =>
+
+const Header = ({ onClick }) =>
   <div className="nav">
     <div className="nav-left">
-      <div className="nav-item">Top</div>
-      <div className="nav-item">Best</div>
-      <div className="nav-item">New</div>
-      <div className="nav-item">Ask</div>
-      <div className="nav-item">Show</div>
-      <div className="nav-item">Job</div>
+      <div className="nav-item" onClick={onClick('TOP')}>Top</div>
+      <div className="nav-item" onClick={onClick('BEST')}>Best</div>
+      <div className="nav-item" onClick={onClick('NEW')}>New</div>
+      <div className="nav-item" onClick={onClick('ASK')}>Ask</div>
+      <div className="nav-item" onClick={onClick('SHOW')}>Show</div>
+      <div className="nav-item" onClick={onClick('JOB')}>Job</div>
     </div>
   </div>;
 
