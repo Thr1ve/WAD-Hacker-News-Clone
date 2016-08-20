@@ -16,7 +16,8 @@ export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
 export const receiveItems = items => ({ type: RECEIVE_ITEMS, items });
 
 // This may seem a little redundant, but I'd like to keep the
-// firebase API as separate as possible from this logic
+// firebase API as separate as possible from this logic.
+// Currently unused
 export const getItem = id => (dispatch, getState) => {
   fetchItem(id).then(item => {
     dispatch(receiveItem(id, item));
@@ -38,13 +39,13 @@ export const getNeededItems = ids => (dispatch, getState) => {
   // filter out any ids we already have in cachedItems
   const neededItems = ids.filter(id => !cachedItems[id]);
   // fetch only the neededItems
-  return fetchItems(neededItems)
-    .then(items => {
-      const asObject = objectifyItemArray(items);
-      dispatch(receiveItems(asObject))
-      return Promise.resolve();
-    });
+  return dispatch(getItems(neededItems));
 };
+
+export const getNeededVisibleItems = () => (dispatch, getState) => {
+  const { visibleItemIds } = getState().ui;
+  return dispatch(getNeededItems(visibleItemIds));
+}
 
 export const getFeedIds = (feed = 'TOP') => (dispatch, getState) => {
   dispatch(isFetchingList());
