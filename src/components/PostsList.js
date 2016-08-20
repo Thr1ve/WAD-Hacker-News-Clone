@@ -3,26 +3,18 @@ import { connect } from 'react-redux';
 
 import Post from './Post';
 
-const PostsList = React.createClass({
-  render() {
-    return (
-      this.props.isLoading ?
-        <div className="container">
-          LOADING FEED...
-        </div> :
-        <div className="container">
-          {
-            this.props.visibleIds.map((id, i) => {
-              if (this.props.data[id]) {
-                return <Post key={i} post={this.props.data[id]} />
-              }
-              return <Post key={i} post={{url: "loading", title: "loading"}} />;
-            })
-          }
-        </div>
-    );
-  }
-});
+const PostsList = ({ isLoading, visibleIds, data }) =>
+  isLoading ?
+    <div className="container">
+      LOADING FEED...
+    </div> :
+    <div className="container">
+      {
+        visibleIds.map((id, i) => data[id] ? <Post key={i} post={data[id]} /> :
+          <Post key={i} post={{url: "loading", title: "loading"}} />
+        )
+      }
+    </div>;
 
 PostsList.propTypes = {
   isLoading: PropTypes.bool,
