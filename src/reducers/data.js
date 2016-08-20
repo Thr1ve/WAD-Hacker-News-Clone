@@ -36,3 +36,5 @@ export default function dataReducer(state = defaultState, action) {
       return state;
   }
 }
+
+export const getFeedIds = (state, id) => state.ids[id] || [];
