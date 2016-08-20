@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
-import { initFeed } from './actions';
+import { initFeed, nextPage, previousPage } from './actions';
 import PostsList from './components/PostsList';
 import Header from './components/Header';
 
@@ -15,10 +15,18 @@ class App extends Component {
     this.props.dispatch(initFeed(feedName));
   }
 
+  next = () => this.props.dispatch(nextPage())
+
+  prev = () => this.props.dispatch(previousPage())
+
   render() {
     return (
       <div className="container">
-        <Header createClickHandler={this.createHandler()}/>
+        <Header
+          createClickHandler={this.createHandler()}
+          next={this.next}
+          prev={this.prev}
+        />
         <PostsList />
       </div>
     );

@@ -7,7 +7,7 @@ import { setFeed, dumpVisibleItemIds, setPage } from './ui';
   // TODO: check route to verify which list to fetch (i.e. 'website.com/top', 'website.com/show', etc.)
   //    - default should be 'TOP'
   // `dispatch(checkUrlRoute());`
-  // TODO: add actions to handle paging or infinite scroll
+  // TODO: add actions for infinite scroll
 
 export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
   // set the new feed

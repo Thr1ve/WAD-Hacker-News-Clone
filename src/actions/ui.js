@@ -20,8 +20,17 @@ export const setCurrentPage = n => ({ type: SET_CURRENT_PAGE, n });
 const getPageIds = (ids, n) => ids.slice((n - 1) * PAGE_SIZE, (n - 1) * PAGE_SIZE + PAGE_SIZE);
 
 export const setPage = n => (dispatch, getState) => {
-  const { data: { ids }, ui: { currentFeed } } = getState();
-  dispatch(setCurrentPage(n));
-  dispatch(setVisibleItemIds(getPageIds(ids[currentFeed], n)));
-  return dispatch(getNeededVisibleItems());
+  // TODO: check if n is greater than our max number of pages
+  if (n > 0) {
+    const { data: { ids }, ui: { currentFeed } } = getState();
+    dispatch(setCurrentPage(n));
+    dispatch(setVisibleItemIds(getPageIds(ids[currentFeed], n)));
+    return dispatch(getNeededVisibleItems());
+  }
 };
+
+export const nextPage = () => (dispatch, getState) =>
+  dispatch(setPage(getState().ui.currentPage + 1));
+
+export const previousPage = () => (dispatch, getState) =>
+  dispatch(setPage(getState().ui.currentPage - 1));
