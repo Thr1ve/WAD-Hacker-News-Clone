@@ -2,6 +2,15 @@
 
 import Firebase from 'firebase';
 
+const FEEDNAMES = {
+  NEW: 'newstories',
+  TOP: 'topstories',
+  BEST: 'beststories',
+  ASK: 'askstories',
+  SHOW: 'showstories',
+  JOB: 'jobstories'
+}
+
 const api = new Firebase('https://hacker-news.firebaseio.com/v0');
 
 const getItemRef = id => api.child(`item/${id}`);
@@ -12,11 +21,11 @@ export const fetchItem = id => getItemRef(id)
 
 export const fetchItems = ids => Promise.all(ids.map(id => fetchItem(id)));
 
-export const fetchTopStoryIds = () => api.child('topstories')
+export const fetchFeedIds = (feed = 'TOP') => api.child(FEEDNAMES[feed] || 'TOP')
   .once('value')
   .then(snapshot => Promise.resolve(snapshot.val()));
 
-const fetchTopStoryItems = () => fetchTopStoryIds().then(ids => fetchItems(ids));
+const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
 
 // console.log('starting');
 // console.time('timer');

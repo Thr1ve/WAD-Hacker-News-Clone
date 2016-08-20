@@ -2,7 +2,7 @@ import { addVisibleItemIds } from './ui';
 
 import {
   objectifyItemArray,
-  fetchTopStoryIds, fetchItem, fetchItems
+  fetchFeedIds, fetchItem, fetchItems
 } from '../lib';
 
 export const IS_FETCHING_LIST = 'IS_FETCHING_LIST';
@@ -32,9 +32,9 @@ export const getItems = ids => (dispatch, getState) => {
   });
 };
 
-export const getTopIds = () => (dispatch, getState) => {
+export const getFeedIds = (feed = 'TOP') => (dispatch, getState) => {
   dispatch(isFetchingList());
-  return fetchTopStoryIds().then(ids => {
+  return fetchFeedIds(feed).then(ids => {
     dispatch(receiveIds(ids, 'TOP'));
     return Promise.resolve(ids);
   });
