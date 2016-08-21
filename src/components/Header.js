@@ -11,10 +11,6 @@ const Header = ({ createClickHandler, next, prev }) =>
         <div className="nav-item" onClick={createClickHandler('SHOW')}>Show</div>
         <div className="nav-item" onClick={createClickHandler('JOB')}>Job</div>
       </div>
-      <div className="nav-right">
-        <div className="nav-item" onClick={prev}>Previous</div>
-        <div className="nav-item" onClick={next}>Next</div>
-      </div>
     </div>
   </div>;
 
