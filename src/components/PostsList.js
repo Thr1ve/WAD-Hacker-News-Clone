@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Post from './Post';
 
-const PostsList = ({ isLoading, visibleIds, data }) =>
+export const PostsList = ({ isLoading, visibleIds, data }) =>
   isLoading ?
     <div className="container">
       LOADING FEED...
