@@ -1,17 +1,23 @@
 import React, { PropTypes } from 'react';
+import { rangeAround } from '../lib';
 
-const PageSelector = ({ createClickHandler, prev, next, nPages=1, currentPage=1 }) =>
+// NOTE: I want this to end up being an optional prop to the component instead
+// of a constant; I'd like to find a way to have the component try
+// to calculate this on its own by default.
+const MAX_PAGE_SPACE = 7;
+
+const PageSelector = ({ createClickHandler, prev, next, nPages = 1, currentPage = 1 }) =>
   <nav className="pagination">
     <a onClick={prev} className="button">Previous</a>
     <a onClick={next} className="button">Next page</a>
     <ul>
       {
-        Array.from({ length: nPages }, (v, i) => i + 1).map(pageNumber =>
+        rangeAround(currentPage, MAX_PAGE_SPACE).map(pageNumber =>
           <li key={pageNumber}>
             <a
-              className={`button${ pageNumber === currentPage ? ' is-primary' : ''}`}
+              className={`button${pageNumber === currentPage ? ' is-primary' : ''}`}
               onClick={createClickHandler(pageNumber)}
-            />
+            > {pageNumber} </a>
           </li>
         )
       }
