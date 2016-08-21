@@ -1,4 +1,4 @@
-exports[`Post should render an object with a url and title property correctly 1`] = `
+exports[`Post:snapshot should render an object with a url and title property correctly 1`] = `
 <div
   className="media">
   <div
@@ -19,7 +19,7 @@ exports[`Post should render an object with a url and title property correctly 1`
 </div>
 `;
 
-exports[`Post should render an object without a url property correctly 1`] = `
+exports[`Post:snapshot should render an object without a url property correctly 1`] = `
 <div
   className="media">
   <div

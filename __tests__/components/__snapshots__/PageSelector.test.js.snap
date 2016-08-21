@@ -1,4 +1,58 @@
-exports[`PageSelector should render correctly 1`] = `
+exports[`PageSelector:snapshot should render correctly on page 1 1`] = `
+<nav
+  className="pagination">
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Previous
+  </a>
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Next page
+  </a>
+  <ul>
+    <li>
+      <a
+        className="button is-primary"
+        onClick={[Function onClick]}>
+         
+        1
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        2
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        3
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        4
+         
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`PageSelector:snapshot should render correctly on page 2 1`] = `
 <nav
   className="pagination">
   <a
@@ -54,6 +108,240 @@ exports[`PageSelector should render correctly 1`] = `
         onClick={[Function onClick]}>
          
         5
+         
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`PageSelector:snapshot should render correctly on page 3 1`] = `
+<nav
+  className="pagination">
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Previous
+  </a>
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Next page
+  </a>
+  <ul>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        1
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        2
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button is-primary"
+        onClick={[Function onClick]}>
+         
+        3
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        4
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        5
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        6
+         
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`PageSelector:snapshot should render correctly on page 4 1`] = `
+<nav
+  className="pagination">
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Previous
+  </a>
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Next page
+  </a>
+  <ul>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        1
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        2
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        3
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button is-primary"
+        onClick={[Function onClick]}>
+         
+        4
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        5
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        6
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        7
+         
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`PageSelector:snapshot should render correctly on page 5 1`] = `
+<nav
+  className="pagination">
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Previous
+  </a>
+  <a
+    className="button"
+    onClick={[Function onClick]}>
+    Next page
+  </a>
+  <ul>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        2
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        3
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        4
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button is-primary"
+        onClick={[Function onClick]}>
+         
+        5
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        6
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        7
+         
+      </a>
+    </li>
+    <li>
+      <a
+        className="button"
+        onClick={[Function onClick]}>
+         
+        8
          
       </a>
     </li>

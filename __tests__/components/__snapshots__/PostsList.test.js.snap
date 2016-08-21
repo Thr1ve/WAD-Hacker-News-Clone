@@ -1,41 +1,33 @@
-exports[`PostsList should render correctly 1`] = `
+exports[`PostsList:snapshot should render a "loading" Post when there's no data for a given id 1`] = `
 <div
   className="container">
-  <div
-    className="media">
-    <div
-      className="media-content">
-      <p>
-        <strong />
-      </p>
-      <small>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-      </small>
-    </div>
-  </div>
-  <div
-    className="media">
-    <div
-      className="media-content">
-      <p>
-        <strong />
-      </p>
-      <small>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-      </small>
-    </div>
-  </div>
+  <Post
+    post={Object {}} />
+  <Post
+    post={Object {}} />
+  <Post
+    post={
+      Object {
+        "title": "loading",
+        "url": "loading"
+      }
+    } />
+</div>
+`;
+
+exports[`PostsList:snapshot should render correctly 1`] = `
+<div
+  className="container">
+  <Post
+    post={Object {}} />
+  <Post
+    post={Object {}} />
+</div>
+`;
+
+exports[`PostsList:snapshot should render correctly when isLoading is true 1`] = `
+<div
+  className="container">
+  LOADING FEED...
 </div>
 `;

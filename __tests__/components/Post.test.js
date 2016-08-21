@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Post from '../../src/components/Post';
 
-describe('Post', () => {
+describe('Post:snapshot', () => {
   it('should render an object with a url and title property correctly', () => {
     const component = renderer.create(
       <Post post={{ url: "www.google.com", title: "google", text: "a popular search engine" }}/>
@@ -18,17 +18,4 @@ describe('Post', () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  // it('is contained within a div', () => {
-  //   let renderer = TestUtils.createRenderer();
-  //   let post;
-  //
-  //   renderer.render(
-  //    <Post post={{ url: "www.google.com", title: "google" }}/>
-  //   );
-  //
-  //   post = renderer.getRenderOutput();
-  //
-  //   expect(post.type).toEqual('div');
-  // });
 });
