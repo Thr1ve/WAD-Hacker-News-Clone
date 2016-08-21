@@ -1,0 +1,41 @@
+exports[`PostsList should render correctly 1`] = `
+<div
+  className="container">
+  <div
+    className="media">
+    <div
+      className="media-content">
+      <p>
+        <strong />
+      </p>
+      <small>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined
+            }
+          } />
+      </small>
+    </div>
+  </div>
+  <div
+    className="media">
+    <div
+      className="media-content">
+      <p>
+        <strong />
+      </p>
+      <small>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined
+            }
+          } />
+      </small>
+    </div>
+  </div>
+</div>
+`;

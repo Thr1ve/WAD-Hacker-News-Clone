@@ -1,0 +1,43 @@
+exports[`Post should render an object with a url and title property correctly 1`] = `
+<div
+  className="media">
+  <div
+    className="media-content">
+    <p>
+      <strong>
+        <a
+          href="www.google.com"
+          target="_blank">
+          google
+        </a>
+      </strong>
+    </p>
+    <small>
+      www.google.com
+    </small>
+  </div>
+</div>
+`;
+
+exports[`Post should render an object without a url property correctly 1`] = `
+<div
+  className="media">
+  <div
+    className="media-content">
+    <p>
+      <strong>
+        google
+      </strong>
+    </p>
+    <small>
+      <div
+        className="content"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "a popular search engine"
+          }
+        } />
+    </small>
+  </div>
+</div>
+`;
