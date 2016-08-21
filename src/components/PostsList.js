@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import Post from './Post';
 
-export const PostsList = ({ isLoading, visibleIds, data }) =>
+// export unconnected component for testing
+export const RawPostsList = ({ isLoading, visibleIds, data }) =>
   isLoading ?
     <div className="container">
       LOADING FEED...
@@ -16,7 +17,7 @@ export const PostsList = ({ isLoading, visibleIds, data }) =>
       }
     </div>;
 
-PostsList.propTypes = {
+RawPostsList.propTypes = {
   isLoading: PropTypes.bool,
   data: PropTypes.object,
   visibleIds: PropTypes.array
@@ -30,4 +31,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(PostsList);
+export default connect(mapStateToProps)(RawPostsList);
