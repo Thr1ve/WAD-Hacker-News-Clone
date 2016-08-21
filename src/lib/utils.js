@@ -14,8 +14,10 @@ export function simpleRange(start, end) {
   return Array.from({ length: end - start }, (v, i) => i + start);
 }
 
+// TODO: refactor this to "atOrAbove" and "atOrBelow"
 const oneOrAbove = (n) => n > 0 ? n : 1;
 
+// TODO: add optional 'end' parameter and make function ignore numbers above 'end'
 export const rangeAround = (middle, length) => simpleRange(
   oneOrAbove(middle - Math.floor(length / 2)),
   middle + Math.ceil(length / 2)
