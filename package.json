@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "ava": "^0.16.0",
-    "react-scripts": "0.2.1"
+    "react-scripts": "https://github.com/facebookincubator/create-react-app"
   },
   "dependencies": {
     "bulma": "^0.1.2",
@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "ava"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
