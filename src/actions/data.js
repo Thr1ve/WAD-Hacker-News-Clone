@@ -19,8 +19,9 @@ export const receiveItems = items => ({ type: RECEIVE_ITEMS, items });
 // firebase API as separate as possible from this logic.
 // Currently unused
 export const getItem = id => (dispatch, getState) => {
-  fetchItem(id).then(item => {
+  return fetchItem(id).then(item => {
     dispatch(receiveItem(id, item));
+    return Promise.resolve();
   });
 };
 
@@ -39,7 +40,10 @@ export const getNeededItems = ids => (dispatch, getState) => {
   // filter out any ids we already have in cachedItems
   const neededItems = ids.filter(id => !cachedItems[id]);
   // fetch only the neededItems
-  return dispatch(getItems(neededItems));
+  if (neededItems.length > 0) {
+    return dispatch(getItems(neededItems));
+  }
+  return Promise.resolve();
 };
 
 export const getNeededVisibleItems = () => (dispatch, getState) => {
