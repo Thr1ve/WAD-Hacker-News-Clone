@@ -5,3 +5,8 @@
 .media-content a:visited {
   color: #847bb9;
 }
+
+.postsList {
+  overflow: scroll;
+  max-height: 87vh;
+}
