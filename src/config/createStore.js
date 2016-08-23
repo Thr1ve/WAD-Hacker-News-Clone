@@ -1,27 +1,19 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
 import mainReducer from '../reducers';
 
-const doNotLog = [
-  'RECEIVE_ITEM'
-];
+let middlewares = [thunk];
 
-const logger = createLogger({
-  collapsed: true,
-  predicate: function(getState, action) {
-    if (doNotLog.some(actionName => action.type === actionName)) {
-      return false;
-    }
-    return true;
-  }
-});
+if (process.env.NODE_ENV !== 'production') {
+  const logger = require('./configureLogger').default;
+  middlewares = [...middlewares, logger];
+}
 
 export default function configureStore(initialState) {
   const store = createStore(
     mainReducer,
     compose(
-      applyMiddleware(thunk, logger),
+      applyMiddleware(...middlewares),
       // This line simply enables the redux dev-tools chrome extension for our app
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
