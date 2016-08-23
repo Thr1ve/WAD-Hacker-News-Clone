@@ -7,21 +7,23 @@ import { rangeAround } from '../lib';
 const MAX_PAGE_SPACE = 7;
 
 const PageSelector = ({ createClickHandler, prev, next, nPages = 1, currentPage = 1 }) =>
-  <nav className="pagination">
-    <a onClick={prev} className="button">Previous</a>
-    <a onClick={next} className="button">Next page</a>
-    <ul>
-      {
-        rangeAround(currentPage, MAX_PAGE_SPACE).map(pageNumber =>
-          <li key={pageNumber}>
-            <a
-              className={`button${pageNumber === currentPage ? ' is-primary' : ''}`}
-              onClick={createClickHandler(pageNumber)}
-            > {pageNumber} </a>
-          </li>
-        )
-      }
-    </ul>
+  <nav className="nav">
+    <div className="pagination container">
+      <a onClick={prev} className="button">Previous</a>
+      <a onClick={next} className="button">Next</a>
+      <ul>
+        {
+          rangeAround(currentPage, MAX_PAGE_SPACE).map(pageNumber =>
+            <li key={pageNumber}>
+              <a
+                className={`button${pageNumber === currentPage ? ' is-primary' : ''}`}
+                onClick={createClickHandler(pageNumber)}
+              > {pageNumber} </a>
+            </li>
+          )
+        }
+      </ul>
+    </div>
   </nav>;
 
 PageSelector.propTypes = {

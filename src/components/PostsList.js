@@ -6,10 +6,12 @@ import Post from './Post';
 // export unconnected component for testing
 export const RawPostsList = ({ isLoading, visibleIds, data }) =>
   isLoading ?
-    <div className="container postsList">
-      LOADING FEED...
+    <div className="container has-text-centered">
+      <h1 className="title">
+        Loading Feed...
+      </h1>
     </div> :
-    <div className="container postsList">
+    <div className="container">
       {
         visibleIds.map((id, i) => data[id] ? <Post key={i} post={data[id]} /> :
           <Post key={i} post={{url: "loading", title: "loading"}} />

@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Header = ({ createClickHandler, next, prev }) =>
-  <div className="container">
-    <div className="nav">
+  <nav className="nav">
+    <div className="container">
       <div className="nav-left">
         <div className="nav-item" onClick={createClickHandler('TOP')}>Top</div>
         <div className="nav-item" onClick={createClickHandler('BEST')}>Best</div>
@@ -12,6 +12,6 @@ const Header = ({ createClickHandler, next, prev }) =>
         <div className="nav-item" onClick={createClickHandler('JOB')}>Job</div>
       </div>
     </div>
-  </div>;
+  </nav>
 
 export default Header;

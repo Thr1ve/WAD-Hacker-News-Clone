@@ -24,18 +24,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Header
-          createClickHandler={this.createInitFeedFactory()}
-        />
-        <PostsList />
-        <PageSelector
-          createClickHandler={this.createPageGotoFactory()}
-          next={this.next}
-          prev={this.prev}
-          nPages={this.props.nPages}
-          currentPage={this.props.currentPage}
-        />
+      <div className="hero is-fullheight">
+        <div className="hero-head">
+          <Header
+            createClickHandler={this.createInitFeedFactory()}
+          />
+        </div>
+        <div className="hero-body postsList">
+          <PostsList />
+        </div>
+        <div className="hero-foot">
+          <PageSelector
+            createClickHandler={this.createPageGotoFactory()}
+            next={this.next}
+            prev={this.prev}
+            nPages={this.props.nPages}
+            currentPage={this.props.currentPage}
+          />
+        </div>
       </div>
     );
   }
