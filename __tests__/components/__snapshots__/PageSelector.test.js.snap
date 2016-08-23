@@ -1,32 +1,23 @@
-exports[`PageSelector:snapshot should render correctly on page 1 1`] = `
+exports[`PageSelector:snapshot should render correctly 1`] = `
 <nav
   className="nav">
   <div
     className="pagination container">
     <a
       className="button"
-      onClick={[Function onClick]}>
+      onClick={[Function noOp]}>
       Previous
     </a>
     <a
       className="button"
-      onClick={[Function onClick]}>
+      onClick={[Function noOp]}>
       Next
     </a>
     <ul>
       <li>
         <a
-          className="button is-primary"
-          onClick={[Function onClick]}>
-           
-          1
-           
-        </a>
-      </li>
-      <li>
-        <a
           className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           2
            
@@ -35,7 +26,7 @@ exports[`PageSelector:snapshot should render correctly on page 1 1`] = `
       <li>
         <a
           className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           3
            
@@ -44,139 +35,16 @@ exports[`PageSelector:snapshot should render correctly on page 1 1`] = `
       <li>
         <a
           className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           4
-           
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-`;
-
-exports[`PageSelector:snapshot should render correctly on page 2 1`] = `
-<nav
-  className="nav">
-  <div
-    className="pagination container">
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Previous
-    </a>
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Next
-    </a>
-    <ul>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          1
            
         </a>
       </li>
       <li>
         <a
           className="button is-primary"
-          onClick={[Function onClick]}>
-           
-          2
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          3
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          4
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          5
-           
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-`;
-
-exports[`PageSelector:snapshot should render correctly on page 3 1`] = `
-<nav
-  className="nav">
-  <div
-    className="pagination container">
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Previous
-    </a>
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Next
-    </a>
-    <ul>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          1
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          2
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button is-primary"
-          onClick={[Function onClick]}>
-           
-          3
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          4
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           5
            
@@ -185,82 +53,7 @@ exports[`PageSelector:snapshot should render correctly on page 3 1`] = `
       <li>
         <a
           className="button"
-          onClick={[Function onClick]}>
-           
-          6
-           
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-`;
-
-exports[`PageSelector:snapshot should render correctly on page 4 1`] = `
-<nav
-  className="nav">
-  <div
-    className="pagination container">
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Previous
-    </a>
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Next
-    </a>
-    <ul>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          1
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          2
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          3
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button is-primary"
-          onClick={[Function onClick]}>
-           
-          4
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          5
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           6
            
@@ -269,82 +62,7 @@ exports[`PageSelector:snapshot should render correctly on page 4 1`] = `
       <li>
         <a
           className="button"
-          onClick={[Function onClick]}>
-           
-          7
-           
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-`;
-
-exports[`PageSelector:snapshot should render correctly on page 5 1`] = `
-<nav
-  className="nav">
-  <div
-    className="pagination container">
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Previous
-    </a>
-    <a
-      className="button"
-      onClick={[Function onClick]}>
-      Next
-    </a>
-    <ul>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          2
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          3
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          4
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button is-primary"
-          onClick={[Function onClick]}>
-           
-          5
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
-           
-          6
-           
-        </a>
-      </li>
-      <li>
-        <a
-          className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           7
            
@@ -353,7 +71,7 @@ exports[`PageSelector:snapshot should render correctly on page 5 1`] = `
       <li>
         <a
           className="button"
-          onClick={[Function onClick]}>
+          onClick={[Function noOp]}>
            
           8
            
