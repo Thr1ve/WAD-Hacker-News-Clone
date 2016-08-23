@@ -30,7 +30,7 @@ class App extends Component {
             createClickHandler={this.createInitFeedFactory()}
           />
         </div>
-        <div className="hero-body postsList">
+        <div className="hero-body">
           <PostsList />
         </div>
         <div className="hero-foot">
