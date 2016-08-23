@@ -1,8 +1,8 @@
 exports[`Header:snapshot should render correctly 1`] = `
-<div
-  className="container">
+<nav
+  className="nav">
   <div
-    className="nav">
+    className="container">
     <div
       className="nav-left">
       <div
@@ -37,5 +37,5 @@ exports[`Header:snapshot should render correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
+</nav>
 `;
