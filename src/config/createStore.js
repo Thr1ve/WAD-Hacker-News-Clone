@@ -15,7 +15,7 @@ export default function configureStore(initialState) {
     compose(
       applyMiddleware(...middlewares),
       // This line simply enables the redux dev-tools chrome extension for our app
-      window.devToolsExtension ? window.devToolsExtension() : f => f
+      process.env.NODE_ENV !== 'production' && window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   );
 
