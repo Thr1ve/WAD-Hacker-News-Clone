@@ -16,7 +16,7 @@ const PageSelector = ({ createClickHandler, prev, next, nPages = 1, currentPage 
           rangeAround(currentPage, MAX_PAGE_SPACE).map(pageNumber =>
             <li key={pageNumber}>
               <a
-                className={`button${pageNumber === currentPage ? ' is-primary' : ''}`}
+                className={`button is-hidden-mobile${pageNumber === currentPage ? ' is-primary' : ''}`}
                 onClick={createClickHandler(pageNumber)}
               > {pageNumber} </a>
             </li>
