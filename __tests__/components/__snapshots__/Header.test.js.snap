@@ -5,36 +5,54 @@ exports[`Header:snapshot should render correctly 1`] = `
     className="container">
     <div
       className="nav-left">
-      <div
-        className="nav-item"
-        onClick={[Function noOp]}>
-        Top
-      </div>
-      <div
-        className="nav-item"
-        onClick={[Function noOp]}>
-        Best
-      </div>
-      <div
-        className="nav-item"
-        onClick={[Function noOp]}>
-        New
-      </div>
-      <div
-        className="nav-item"
-        onClick={[Function noOp]}>
-        Ask
-      </div>
-      <div
-        className="nav-item"
-        onClick={[Function noOp]}>
-        Show
-      </div>
-      <div
-        className="nav-item"
-        onClick={[Function noOp]}>
-        Job
-      </div>
+      <span
+        className="nav-item">
+        <a
+          className="button is-link"
+          onClick={[Function noOp]}>
+          Top
+        </a>
+      </span>
+      <span
+        className="nav-item">
+        <a
+          className="button is-link"
+          onClick={[Function noOp]}>
+          Best
+        </a>
+      </span>
+      <span
+        className="nav-item">
+        <a
+          className="button is-link"
+          onClick={[Function noOp]}>
+          New
+        </a>
+      </span>
+      <span
+        className="nav-item">
+        <a
+          className="button is-link"
+          onClick={[Function noOp]}>
+          Ask
+        </a>
+      </span>
+      <span
+        className="nav-item">
+        <a
+          className="button is-link"
+          onClick={[Function noOp]}>
+          Show
+        </a>
+      </span>
+      <span
+        className="nav-item">
+        <a
+          className="button is-link"
+          onClick={[Function noOp]}>
+          Job
+        </a>
+      </span>
     </div>
   </div>
 </nav>
