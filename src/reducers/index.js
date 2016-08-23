@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import data, { getFeedIds } from './data';
 import ui from './ui';
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 8;
 
 export default combineReducers({ data, ui });
 
