@@ -7,32 +7,32 @@ exports[`Header:snapshot should render correctly 1`] = `
       className="nav-left">
       <div
         className="nav-item"
-        onClick={[Function onClick]}>
+        onClick={[Function noOp]}>
         Top
       </div>
       <div
         className="nav-item"
-        onClick={[Function onClick]}>
+        onClick={[Function noOp]}>
         Best
       </div>
       <div
         className="nav-item"
-        onClick={[Function onClick]}>
+        onClick={[Function noOp]}>
         New
       </div>
       <div
         className="nav-item"
-        onClick={[Function onClick]}>
+        onClick={[Function noOp]}>
         Ask
       </div>
       <div
         className="nav-item"
-        onClick={[Function onClick]}>
+        onClick={[Function noOp]}>
         Show
       </div>
       <div
         className="nav-item"
-        onClick={[Function onClick]}>
+        onClick={[Function noOp]}>
         Job
       </div>
     </div>
