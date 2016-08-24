@@ -14,9 +14,9 @@ class App extends Component {
     this.props.dispatch(initFeed());
   }
 
-  createInitFeedFactory = () => feedName => () => this.props.dispatch(initFeed(feedName))
+  initFeedFactory = feedName => () => this.props.dispatch(initFeed(feedName))
 
-  createPageGotoFactory = () => pageNumber => () => this.props.dispatch(setPage(pageNumber))
+  pageGotoFactory = pageNumber => () => this.props.dispatch(setPage(pageNumber))
 
   next = () => this.props.dispatch(nextPage())
 
@@ -27,7 +27,7 @@ class App extends Component {
       <div className="hero is-fullheight">
         <div className="hero-head">
           <Header
-            createClickHandler={this.createInitFeedFactory()}
+            createClickHandler={this.initFeedFactory}
           />
         </div>
         <div className="hero-body">
@@ -35,7 +35,7 @@ class App extends Component {
         </div>
         <div className="hero-foot">
           <PageSelector
-            createClickHandler={this.createPageGotoFactory()}
+            createClickHandler={this.pageGotoFactory}
             next={this.next}
             prev={this.prev}
             nPages={this.props.nPages}
