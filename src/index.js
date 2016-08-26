@@ -1,16 +1,16 @@
+import 'bulma/css/bulma.css';
+import './App.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import App from './App';
-import 'bulma/css/bulma.css';
+import { browserHistory, hashHistory } from 'react-router';
+import Root from './Root';
 
 import createStore from './config/createStore';
 
 const store = createStore();
 
 ReactDOM.render(
-  <Provider store={store} >
-    <App />
-  </Provider>,
+  <Root store={store} history={hashHistory}/>,
   document.getElementById('root')
 );
