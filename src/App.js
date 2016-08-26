@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './App.css';
 
 import { initFeed, nextPage, previousPage, setPage, } from './actions';
 import { getLastPage } from './reducers';
