@@ -1,3 +1,4 @@
+// TODO: add hot-reloading here if/when we decide to eject create-react-app and customize
 import 'bulma/css/bulma.css';
 import './App.css';
 
