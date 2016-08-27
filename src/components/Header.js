@@ -1,29 +1,18 @@
 import React from 'react';
+import NavLink from './NavLink';
 
 const Header = ({ createClickHandler, next, prev }) =>
   <nav className="nav">
     <div className="container">
       <div className="nav-left">
-        <span className="nav-item" >
-          <a className="button is-link" onClick={createClickHandler('TOP')}>Top</a>
-        </span>
-        <span className="nav-item" >
-          <a className="button is-link" onClick={createClickHandler('BEST')}>Best</a>
-        </span>
-        <span className="nav-item" >
-          <a className="button is-link" onClick={createClickHandler('NEW')}>New</a>
-        </span>
-        <span className="nav-item" >
-          <a className="button is-link" onClick={createClickHandler('ASK')}>Ask</a>
-        </span>
-        <span className="nav-item" >
-          <a className="button is-link" onClick={createClickHandler('SHOW')}>Show</a>
-        </span>
-        <span className="nav-item" >
-          <a className="button is-link" onClick={createClickHandler('JOB')}>Job</a>
-        </span>
+        <NavLink to='feed/top'> Top </NavLink>
+        <NavLink to='feed/best'> Best </NavLink>
+        <NavLink to='feed/new'> New </NavLink>
+        <NavLink to='feed/ask'> Ask </NavLink>
+        <NavLink to='feed/show'> Show </NavLink>
+        <NavLink to='feed/job'> Job </NavLink>
       </div>
     </div>
-  </nav>
+  </nav>;
 
 export default Header;
