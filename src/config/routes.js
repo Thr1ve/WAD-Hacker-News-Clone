@@ -1,16 +1,18 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRedirect } from 'react-router';
 import Main from '../App';
 
-const App = ({ children}) =>
+// TODO: Move header here?
+const App = ({ children }) =>
   <div>
     {children}
   </div>;
 
 const Routes = (
   <Route path={'/'} component={App}>
-    <IndexRoute component={Main} />
-    <Route path={'/:feedName'} component={Main} />
+    {/* <Route path={'/comments(/:itemId)'} component={CommentView} /> */}
+    <Route path={'/feed(/:feedId)'} component={Main} />
+    <IndexRedirect to="feed" />
   </Route>
 );
 
