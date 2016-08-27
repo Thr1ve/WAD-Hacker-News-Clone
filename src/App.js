@@ -9,8 +9,14 @@ import PageSelector from './components/PageSelector';
 import Header from './components/Header';
 
 class App extends Component {
+  componentWillReceiveProps(nextProps, ...args) {
+    if (this.props.params.feedName !== nextProps.params.feedName) {
+      this.props.dispatch(initFeed(this.props.params.feedName));
+    }
+  }
+
   componentDidMount() {
-    this.props.dispatch(initFeed());
+    this.props.dispatch(initFeed(this.props.params.feedName));
   }
 
   initFeedFactory = feedName => () => this.props.dispatch(initFeed(feedName))
