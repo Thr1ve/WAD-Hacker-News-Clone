@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLink from './NavLink';
 
-const Header = ({ createClickHandler, next, prev }) =>
+const Header = () =>
   <nav className="nav">
     <div className="container">
       <div className="nav-left">

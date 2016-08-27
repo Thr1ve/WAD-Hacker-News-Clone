@@ -31,9 +31,7 @@ class App extends Component {
     return (
       <div className="hero is-fullheight">
         <div className="hero-head">
-          <Header
-            createClickHandler={this.initFeedFactory}
-          />
+          <Header />
         </div>
         <div className="hero-body">
           <PostsList />
