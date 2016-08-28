@@ -3,88 +3,142 @@ exports[`PageSelector:snapshot should render correctly 1`] = `
   className="nav">
   <div
     className="pagination container">
-    <a
+    <Link
       className="button"
-      onClick={[Function bound handleClick]}
-      style={Object {}}>
+      to={
+        Object {
+          "pathname": "route",
+          "query": Object {
+            "page": 4
+          }
+        }
+      }>
        Previous 
-    </a>
-    <a
+    </Link>
+    <Link
       className="button"
-      onClick={[Function bound handleClick]}
-      style={Object {}}>
+      to={
+        Object {
+          "pathname": "route",
+          "query": Object {
+            "page": 6
+          }
+        }
+      }>
        Next 
-    </a>
+    </Link>
     <ul>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 2
+              }
+            }
+          }>
            
           2
            
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 3
+              }
+            }
+          }>
            
           3
            
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 4
+              }
+            }
+          }>
            
           4
            
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile is-primary"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 5
+              }
+            }
+          }>
            
           5
            
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 6
+              }
+            }
+          }>
            
           6
            
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 7
+              }
+            }
+          }>
            
           7
            
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           className="button is-hidden-mobile"
-          onClick={[Function bound handleClick]}
-          style={Object {}}>
+          to={
+            Object {
+              "pathname": "route",
+              "query": Object {
+                "page": 8
+              }
+            }
+          }>
            
           8
            
-        </a>
+        </Link>
       </li>
     </ul>
   </div>
