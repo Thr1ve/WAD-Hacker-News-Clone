@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RawPostsList as PostsList } from '../../src/components/PostsList';
+import PostsList from '../../src/components/PostsList';
 
 jest.mock('../../src/components/Post', () => 'Post');
 
