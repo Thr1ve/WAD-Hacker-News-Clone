@@ -1,41 +1,41 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import { nextPage, previousPage, setPage, } from '../actions';
+import { setPage, } from '../actions';
 import { getLastPage } from '../reducers';
 
 import PageSelector from '../components/PageSelector';
 
 const PageSelectorContainer = React.createClass({
+  componentWillReceiveProps(nextProps) {
+    // TODO: if page from query is greater than nPages, redirect to the last page
+    if (this.props.location.query.page !== nextProps.location.query.page) {
+      this.props.setPage(Number(nextProps.location.query.page || 1))
+    }
+  },
+
   render() {
     return (
       <PageSelector
-        createClickHandler={this.props.createClickHandler}
-        prev={this.props.prev}
-        next={this.props.next}
+        route={this.props.location.pathname}
         nPages={this.props.nPages}
-        currentPage={this.props.currentPage}
+        currentPage={Number(this.props.location.query.page || 1)}
       />
     );
   }
-})
+});
 
 function mapDispatchToProps(dispatch) {
   return {
-    createClickHandler(pageNumber) {
-      return function() {
-        dispatch(setPage(pageNumber))
-      }
-    },
-    next() { dispatch(nextPage()) },
-    prev() { dispatch(previousPage()) },
-  }
+    setPage(pageNumber) {
+      dispatch(setPage(pageNumber))
+    }
+  };
 }
 
 function mapStateToProps(state) {
   return {
-    nPages: getLastPage(state),
-    currentPage: state.ui.currentPage
+    nPages: getLastPage(state)
   };
 }
 
