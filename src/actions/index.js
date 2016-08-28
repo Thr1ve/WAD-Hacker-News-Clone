@@ -16,7 +16,7 @@ const feeds = {
   'job': 'JOB'
 };
 
-export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
+export const initFeed = (feedName = 'TOP', pageNumber = 1) => (dispatch, getState) => {
   const feed = feeds[feedName];
   if (feed === undefined) {
     // redirect to TOP
@@ -27,5 +27,5 @@ export const initFeed = (feedName = 'TOP') => (dispatch, getState) => {
   // remove the currently displayed items
   dispatch(dumpVisibleItemIds());
   // get the ids for the new feed, then reset to first page
-  dispatch(getFeedIds(feed)).then(ids => dispatch(setPage(1)));
+  dispatch(getFeedIds(feed)).then(ids => dispatch(setPage(pageNumber)));
 };
