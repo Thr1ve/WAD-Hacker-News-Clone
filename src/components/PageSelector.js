@@ -13,8 +13,14 @@ const safeNext = (currentPage, nPages) => currentPage < nPages ? currentPage + 1
 const PageSelector = ({ route = 'feed', nPages = 1, currentPage = 1 }) =>
   <nav className="nav">
     <div className="pagination container">
-      <Link to={{ pathname: route, query: { page: safePrev(currentPage) }}} className="button"> Previous </Link>
-      <Link to={{ pathname: route, query: { page: safeNext(currentPage, nPages) }}} className="button"> Next </Link>
+      <Link
+        to={{ pathname: route, query: { page: safePrev(currentPage) }}}
+        className="button"
+      > Previous </Link>
+      <Link
+        to={{ pathname: route, query: { page: safeNext(currentPage, nPages) }}}
+        className="button"
+      > Next </Link>
       <ul>
         {
           rangeAround(currentPage, MAX_PAGE_SPACE).map((pageNumber, i) =>
