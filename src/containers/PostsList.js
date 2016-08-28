@@ -12,7 +12,7 @@ const PostsListContainer = React.createClass({
   },
 
   componentDidMount() {
-      this.props.initFeed(this.props.params.feedName);
+    this.props.initFeed(this.props.params.feedName, this.props.location.query.page);
   },
 
   render() {
@@ -23,7 +23,9 @@ const PostsListContainer = React.createClass({
 
 function mapDispatchToProps(dispatch) {
   return {
-    initFeed(feedName) { dispatch(initFeed(feedName)) }
+    initFeed(feedName, pageNumber) {
+      dispatch(initFeed(feedName, pageNumber))
+    }
   }
 }
 
