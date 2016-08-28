@@ -6,4 +6,8 @@ const NavLink = ({ to, children }) =>
     <Link className="button is-link" to={to} activeClassName="active"> {children} </Link>
   </span>;
 
+NavLink.propTypes = {
+  to: PropTypes.string
+};
+
 export default NavLink;

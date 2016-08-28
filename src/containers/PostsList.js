@@ -16,13 +16,8 @@ const PostsListContainer = React.createClass({
   },
 
   render() {
-    return (
-      <PostsList
-        isLoading={this.props.isLoading}
-        data={this.props.data}
-        visibleIds={this.props.visibleIds}
-      />
-    );
+    const { isLoading, data, visibleIds } = this.props;
+    return <PostsList isLoading={isLoading} data={data} visibleIds={visibleIds} />;
   }
 })
 
