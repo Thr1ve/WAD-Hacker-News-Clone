@@ -1,19 +1,16 @@
 import React from 'react';
 import { Route, IndexRedirect } from 'react-router';
-import Feed from '../App';
 
-// TODO: Move header here?
-const App = ({ children }) =>
-  <div>
-    {children}
-  </div>;
+import App from '../App';
+import PostsList from '../containers/PostsList';
+import PageSelector from '../containers/PageSelector';
 
 // TODO: handle pageNumber here as well
 const Routes = (
   <Route path={'/'} component={App}>
-    {/* <Route path={'/comments(/:itemId)'} component={CommentView} /> */}
-    <Route path={'/feed(/:feedName)'} component={Feed} />
-    <IndexRedirect to="feed" />
+    {/* <Route path={'/comments/:itemId'} component={CommentView} /> */}
+    <Route path={'/feed(/:feedName)'} components={{ body: PostsList, footer: PageSelector }} />
+    <IndexRedirect to="feed/top" />
   </Route>
 );
 
