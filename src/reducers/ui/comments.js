@@ -9,3 +9,4 @@ export default function commentsReducer(state = defaultState, action) {
     default:
       return state;
   }
+}
