@@ -33,7 +33,7 @@ function mapStateToProps(state) {
   return {
     isLoading: state.data.loading,
     data: state.data.cachedItems,
-    visibleIds: state.ui.visibleItemIds
+    visibleIds: state.ui.feed.visibleItemIds
   };
 }
 

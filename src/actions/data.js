@@ -47,7 +47,7 @@ export const getNeededItems = ids => (dispatch, getState) => {
 };
 
 export const getNeededVisibleItems = () => (dispatch, getState) => {
-  const { visibleItemIds } = getState().ui;
+  const { visibleItemIds } = getState().ui.feed;
   return dispatch(getNeededItems(visibleItemIds));
 }
 
