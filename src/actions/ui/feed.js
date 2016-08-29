@@ -1,5 +1,5 @@
-import { getNeededVisibleItems } from './data';
-import { getPageIds } from '../reducers';
+import { getNeededVisibleItems } from '../data';
+import { getPageIds } from '../../reducers';
 
 export const ADD_VISIBLE_ITEM_IDS  = 'ADD_VISIBLE_ITEM_IDS';
 export const addVisibleItemIds = ids => ({ type: ADD_VISIBLE_ITEM_IDS, ids });
