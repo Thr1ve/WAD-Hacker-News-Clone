@@ -58,3 +58,13 @@ export const getFeedIds = (feed = 'TOP') => (dispatch, getState) => {
     return Promise.resolve(ids);
   });
 };
+
+export const getChildrenRecurse = ids => (dispatch, getState) => {
+  dispatch(getNeededItems(ids)).then(items => {
+    items.forEach(item => {
+      if (!!item.kids) {
+        dispatch(getChildrenRecurse(item.kids));
+      }
+    });
+  });
+}
