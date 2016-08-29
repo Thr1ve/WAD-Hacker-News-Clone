@@ -21,7 +21,7 @@ export const receiveItems = items => ({ type: RECEIVE_ITEMS, items });
 export const getItem = id => (dispatch, getState) => {
   return fetchItem(id).then(item => {
     dispatch(receiveItem(id, item));
-    return Promise.resolve();
+    return Promise.resolve(item);
   });
 };
 
@@ -30,7 +30,7 @@ export const getItems = ids => (dispatch, getState) => {
     .then(items => {
       const asObject = objectifyItemArray(items);
       dispatch(receiveItems(asObject))
-      return Promise.resolve();
+      return Promise.resolve(items);
     });
 };
 
@@ -43,7 +43,7 @@ export const getNeededItems = ids => (dispatch, getState) => {
   if (neededItems.length > 0) {
     return dispatch(getItems(neededItems));
   }
-  return Promise.resolve();
+  return Promise.resolve([]);
 };
 
 export const getNeededVisibleItems = () => (dispatch, getState) => {
