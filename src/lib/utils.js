@@ -1,6 +1,6 @@
-export function objectifyItemArray(arr) {
+export function objectifyItemArray(arr, cb = v => v) {
   return arr.reduce((obj, item) => {
-    obj[item.id] = item;
+    obj[item.id] = cb(item);
     return obj;
   }, {});
 }
