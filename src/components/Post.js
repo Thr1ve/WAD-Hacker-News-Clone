@@ -1,13 +1,11 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
-const createMarkup = html => ({ __html: html });
+import HTMLContent from './HTMLContent';
 
 // We could easily make these two functions separate components if needed, but for now that's overkill
 const getTitle = post => !!post.url ? <a href={post.url} target="_blank">{post.title}</a> : post.title;
-// NOTE: We are relying on HN API to provide safe markup for now. It's trustworthy in
-// my opinion, but I'd still rather not be doing this. Is there a simple way to avoid?
-const getSubtext = post => !!post.url ? post.url :
-  <div className="content" dangerouslySetInnerHTML={createMarkup(post.text)} />;
+const getSubtext = post => !!post.url ? post.url : <HTMLContent html={post.text}/>;
 
 const Post = ({ post }) =>
   <div className="media">
@@ -17,9 +15,9 @@ const Post = ({ post }) =>
       </p>
       <small>{getSubtext(post)}</small>
     </div>
-    {/* <div className="media-right">
-      View Comments
-    </div> */}
+    <Link to={`comments/${post.id}`} className="media-right">
+      Comments
+    </Link>
   </div>;
 
 Post.propTypes = {
