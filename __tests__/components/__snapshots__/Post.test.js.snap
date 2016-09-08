@@ -16,6 +16,12 @@ exports[`Post:snapshot should render an object with a url and title property cor
       www.google.com
     </small>
   </div>
+  <a
+    className="media-right"
+    onClick={[Function bound handleClick]}
+    style={Object {}}>
+    Comments
+  </a>
 </div>
 `;
 
@@ -39,5 +45,11 @@ exports[`Post:snapshot should render an object without a url property correctly 
         } />
     </small>
   </div>
+  <a
+    className="media-right"
+    onClick={[Function bound handleClick]}
+    style={Object {}}>
+    Comments
+  </a>
 </div>
 `;
