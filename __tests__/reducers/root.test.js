@@ -3,7 +3,6 @@ import { createStore } from 'redux';
 import { _getAllKnownDescendants } from '../../src/reducers';
 
 describe('reducers:root:selectors:getAllKnownDescendants', () => {
-
   it('should get all descendants', () => {
     const state = Map({
       1: { kids: ['2', '3'] },
@@ -30,8 +29,3 @@ describe('reducers:root:selectors:getAllKnownDescendants', () => {
     expect(_getAllKnownDescendants(state, '1')).toEqual(['2', '3', '4', '5', '6']);
   })
 });
-
-// describe('data:actions:getItem', () => {
-//   it('', () => {
-//     const store = storeFactory();
-// });
