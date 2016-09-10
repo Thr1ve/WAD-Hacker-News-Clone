@@ -4,7 +4,7 @@ import {
   RECEIVE_ITEM, RECEIVE_ITEMS
 } from '../actions';
 
-const defaultState = Map({
+export const defaultState = Map({
   ids: Map({
     NEW: List([]), TOP: List([]), BEST: List([]),
     ASK: List([]), SHOW: List([]), JOB: List([])
