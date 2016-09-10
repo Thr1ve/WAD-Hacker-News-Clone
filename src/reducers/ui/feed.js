@@ -1,23 +1,24 @@
+import { Map, List } from 'immutable';
 import {
   ADD_VISIBLE_ITEM_IDS, SET_VISIBLE_ITEM_IDS,
   SET_FEED, DUMP_VISIBLE_ITEM_IDS
 } from '../../actions';
 
-const defaultState = {
-  visibleItemIds: [],
+export const defaultState = Map({
+  visibleItemIds: List([]),
   currentFeed: 'TOP',
-};
+});
 
 export default function feedReducer(state = defaultState, action) {
   switch(action.type) {
     case ADD_VISIBLE_ITEM_IDS:
-      return { ...state, visibleItemIds: state.visibleItemIds.concat(action.ids) };
+      return state.update('visibleItemIds', v => v.concat(action.ids))
     case SET_VISIBLE_ITEM_IDS:
-      return { ...state, visibleItemIds: [...action.ids] };
+      return state.set('visibleItemIds', List(action.ids))
     case DUMP_VISIBLE_ITEM_IDS:
-      return { ...state, visibleItemIds: [] }
+      return state.set('visibleItemIds', List([]));
     case SET_FEED:
-      return { ...state, currentFeed: action.feed };
+      return state.set('currentFeed', action.feed);
     default:
       return state;
   }
