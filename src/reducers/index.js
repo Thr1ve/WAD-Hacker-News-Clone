@@ -9,30 +9,30 @@ export default combineReducers({ data, ui });
 
 // TODO: Should these be in reducers/ui/feed?
 export const getLastPage = state =>
-  Math.ceil(getFeedIds(state.data, state.ui.feed.currentFeed).length / PAGE_SIZE);
+  Math.ceil(getFeedIds(state.data, state.ui.feed.currentFeed).size / PAGE_SIZE);
 
 export const getPageIds = (state, n) => getFeedIds(state.data, state.ui.feed.currentFeed)
   .slice((n - 1) * PAGE_SIZE, (n - 1) * PAGE_SIZE + PAGE_SIZE);
 
 // TODO: Should these be in reducers/ui/comments?
 // NOTE: this is probably overcomplicating things, but is a fun use of decorator pattern
-const fromDataCache = fn => (state, ...args) => fn(state.data.cachedItems, ...args);
+const fromDataCache = fn => (state, ...args) => fn(state.data.get('cachedItems'), ...args);
 
 export const _getAllKnownDescendants = (state, id) => {
-  if (state[id] === undefined || state[id].kids === undefined) {
+  if (state.get(id) === undefined || state.get(id).kids === undefined) {
     return [];
   }
   return [
-    ...state[id].kids,
-    ...state[id].kids.reduce((prev, cur) => [ ...prev, ..._getAllKnownDescendants(state, cur)], [])
+    ...state.get(id).kids,
+    ...state.get(id).kids.reduce((prev, cur) => [ ...prev, ..._getAllKnownDescendants(state, cur)], [])
   ];
 };
 
 export const _getKids = (state, id) => {
-  if (state[id] === undefined || state[id].kids === undefined) {
+  if (state.get(id) === undefined || state.get(id).kids === undefined) {
     return [];
   }
-  return [ ...state[id].kids ];
+  return [ ...state.get(id).kids ];
 };
 
 export const getAllKnownDescendants = fromDataCache(_getAllKnownDescendants);
