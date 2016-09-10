@@ -1,7 +1,7 @@
 import { Map, List } from 'immutable';
-import dataReducer from '../../src/reducers/data';
+import dataReducer, { getFeedIds, defaultState } from '../../src/reducers/data';
 
-describe('reducers:data', () => {
+describe('reducers:data:reducer', () => {
   describe('IS_FETCHING_LIST', () => {
     it('should set loading to true', () => {
       const state = dataReducer(undefined, {});
@@ -92,6 +92,15 @@ describe('reducers:data', () => {
 
       expect(after.size).toEqual(1);
       expect(after.get('123456')).toEqual({ foo: 'notbar' });
+    });
+  });
+});
+
+describe('reducers:data:selectors', () => {
+  describe('getFeedIds', () => {
+    it('should get the correct ids', () => {
+      const state = defaultState.setIn(['ids', 'NEW'], List.of('foo', 'bar'))
+      expect(getFeedIds(state, 'NEW')).toEqual(List.of('foo', 'bar'));
     });
   });
 });
