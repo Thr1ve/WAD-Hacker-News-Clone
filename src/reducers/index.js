@@ -9,12 +9,12 @@ export default combineReducers({ data, ui });
 
 // TODO: Should these be in reducers/ui/feed?
 export const getLastPage = state =>
-  Math.ceil(getFeedIds(state.data, state.ui.feed.currentFeed).size / PAGE_SIZE);
+  Math.ceil(getFeedIds(state.data, state.ui.feed.get('currentFeed')).size / PAGE_SIZE);
 
-export const getPageIds = (state, n) => getFeedIds(state.data, state.ui.feed.currentFeed)
+export const getPageIds = (state, n) => getFeedIds(state.data, state.ui.feed.get('currentFeed'))
   .slice((n - 1) * PAGE_SIZE, (n - 1) * PAGE_SIZE + PAGE_SIZE);
 
-// TODO: Should these be in reducers/ui/comments?
+// TODO: Should these be in reducers/data?
 // NOTE: this is probably overcomplicating things, but is a fun use of decorator pattern
 const fromDataCache = fn => (state, ...args) => fn(state.data.get('cachedItems'), ...args);
 
