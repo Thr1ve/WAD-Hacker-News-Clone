@@ -3,8 +3,10 @@ import { combineReducers } from 'redux';
 import data, { getFeedIds } from './data';
 import ui from './ui';
 
+// TODO: this should be part of the state; adjust depending on screen size
 const PAGE_SIZE = 8;
 
+// TODO: use custom combineReducers to make entire state tree immutable
 export default combineReducers({ data, ui });
 
 // TODO: Should these be in reducers/ui/feed?
