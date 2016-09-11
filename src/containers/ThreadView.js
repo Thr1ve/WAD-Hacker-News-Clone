@@ -30,9 +30,8 @@ ThreadView.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   const { params: { itemId } } = ownProps;
-  const { cachedItems } = state.data;
   return {
-    data: cachedItems[itemId] || { itemId },
+    data: state.data.getIn(['cachedItems', itemId]) || { itemId },
     kids: getKids(state, itemId)
   };
 }

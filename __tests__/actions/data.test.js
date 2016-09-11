@@ -1,3 +1,4 @@
+import { Map, List } from 'immutable';
 
 jest.mock(
   '../../src/lib/firebaseApi',
@@ -51,35 +52,33 @@ describe('data:actions:getItems', () => {
 describe('data:actions:getNeededItems', () => {
   it('should fetch only the items we don\'t yet have', () => {
     const store = mockStore({
-      data: {
-        cachedItems: {
-          3: { id: 3 },
-          4: { id: 4 },
-          1234: { id: 1234 }
-        }
-      }
+      data: Map({
+        cachedItems: Map({})
+          .set(3, { id: 3 })
+          .set(4, { id: 4 })
+          .set(1234, { id: 1234 })
+      })
     });
-    return store.dispatch(dataActions.getNeededItems([3, 4, 1234, 1324]))
+    return store.dispatch(dataActions.getNeededItems(List([3, 4, 1234, 1324])))
       .then(() => {
         const actions = store.getActions();
         expect(actions[0].type).toEqual('RECEIVE_ITEMS');
         expect(actions.length).toEqual(1);
-        expect(actions[0].items).toEqual({ '1324': { id: 1324 } });
+        expect(actions[0].items).toEqual(Map({}).set(1324, { id: 1324 }));
       });
   });
 
   it('should not fetch anything if we have all the items', () => {
     const store = mockStore({
-      data: {
-        cachedItems: {
-          3: { id: 3 },
-          4: { id: 4 },
-          1234: { id: 1234 }
-        }
-      }
+      data: Map({
+        cachedItems: Map({})
+          .set(3, { id: 3 })
+          .set(4, { id: 4 })
+          .set(1234, { id: 1234 })
+      })
     });
 
-    return store.dispatch(dataActions.getNeededItems([3, 4]))
+    return store.dispatch(dataActions.getNeededItems(List([3, 4])))
       .then(() => {
         const actions = store.getActions();
         expect(actions.length).toEqual(0);

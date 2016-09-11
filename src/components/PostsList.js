@@ -11,7 +11,7 @@ const PostsList = ({ isLoading, visibleIds, data }) =>
     </div> :
     <div className="container">
       {
-        visibleIds.map((id, i) => data[id] ? <Post key={i} post={data[id]} /> :
+        visibleIds.map((id, i) => data.get(id) ? <Post key={i} post={data.get(id)} /> :
           <Post key={i} post={{url: "loading", title: "loading"}} />
         )
       }
@@ -20,7 +20,7 @@ const PostsList = ({ isLoading, visibleIds, data }) =>
 PostsList.propTypes = {
   isLoading: PropTypes.bool,
   data: PropTypes.object,
-  visibleIds: PropTypes.array
+  visibleIds: PropTypes.object
 };
 
 export default PostsList;

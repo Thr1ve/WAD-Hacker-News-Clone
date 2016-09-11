@@ -34,9 +34,8 @@ _ThreadBranchContainer.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   const { id } = ownProps;
-  const { cachedItems } = state.data;
   return {
-    data: cachedItems[id] || { id },
+    data: state.data.getIn(['cachedItems', id]) || { id },
     kids: getKids(state, id)
   };
 };

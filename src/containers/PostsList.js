@@ -31,9 +31,9 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    isLoading: state.data.loading,
-    data: state.data.cachedItems,
-    visibleIds: state.ui.feed.visibleItemIds
+    isLoading: state.data.get('loading'),
+    data: state.data.get('cachedItems'),
+    visibleIds: state.ui.feed.get('visibleItemIds')
   };
 }
 
