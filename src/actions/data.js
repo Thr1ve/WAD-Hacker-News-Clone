@@ -1,5 +1,5 @@
 import {
-  objectifyItemArray,
+  objectifyItemArray, itemArrayToMap,
   fetchFeedIds, fetchItem, fetchItems
 } from '../lib';
 
@@ -28,26 +28,26 @@ export const getItem = id => (dispatch, getState) => {
 export const getItems = ids => (dispatch, getState) => {
   return fetchItems(ids)
     .then(items => {
-      const asObject = objectifyItemArray(items);
-      dispatch(receiveItems(asObject))
+      const asMap = itemArrayToMap(items);
+      dispatch(receiveItems(asMap))
       return Promise.resolve(items);
     });
 };
 
 export const getNeededItems = ids => (dispatch, getState) => {
   // grab our cachedItems from the current state
-  const { cachedItems } = getState().data
+  const cachedItems = getState().data.get('cachedItems');
   // filter out any ids we already have in cachedItems
-  const neededItems = ids.filter(id => !cachedItems[id]);
+  const neededItems = ids.filter(id => !cachedItems.get(id));
   // fetch only the neededItems
-  if (neededItems.length > 0) {
+  if (neededItems.size > 0) {
     return dispatch(getItems(neededItems));
   }
   return Promise.resolve([]);
 };
 
 export const getNeededVisibleItems = () => (dispatch, getState) => {
-  const { visibleItemIds } = getState().ui.feed;
+  const visibleItemIds = getState().ui.feed.get('visibleItemIds');
   return dispatch(getNeededItems(visibleItemIds));
 }
 

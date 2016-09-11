@@ -24,7 +24,7 @@ export default function dataReducer(state = defaultState, action) {
     case RECEIVE_ITEM:
       return state.setIn(['cachedItems', action.id], action.item)
     case RECEIVE_ITEMS:
-      return state.mergeIn(['cachedItems'], Map(action.items));
+      return state.mergeIn(['cachedItems'], action.items);
     default:
       return state;
   }
