@@ -6,7 +6,7 @@ import PostsList from '../containers/PostsList';
 import PageSelector from '../containers/PageSelector';
 import ThreadView from '../containers/ThreadView';
 
-const Footer = () => <div> footer </div>
+const Footer = () => <div></div>
 
 // TODO: handle pageNumber here as well
 const Routes = (

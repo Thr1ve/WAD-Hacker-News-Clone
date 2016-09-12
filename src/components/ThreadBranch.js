@@ -9,7 +9,6 @@ const ThreadBranch = ({ item, children }) =>
       <strong>{item.get('by')}</strong> says:
       <br />
       <HTMLContent html={item.get('text')}/>
-      <small>ID:</small> {item.get('id')}
     </div>
     {item.get('collapsed') ? '' : children}
   </div>;
