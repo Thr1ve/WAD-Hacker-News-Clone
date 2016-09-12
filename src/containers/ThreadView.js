@@ -14,14 +14,16 @@ const ThreadView = React.createClass({
   },
 
   render() {
-    const { item } = this.props;
+    const { item, isLoading } = this.props;
     return (
-      <ThreadRoot item={item}>
-        {
-          item.has('kids') &&
-          item.get('kids').map((id, i) => <ThreadBranch key={i} id={id} />)
-        }
-      </ThreadRoot>
+      isLoading ?
+        <div> Loading...</div> :
+        <ThreadRoot item={item}>
+          {
+              item.has('kids') &&
+              item.get('kids').map((id, i) => <ThreadBranch key={i} id={id} />)
+          }
+        </ThreadRoot>
     );
   }
 });
@@ -37,6 +39,7 @@ function mapStateToProps(state, ownProps) {
   const { params: { itemId } } = ownProps;
   return {
     item: getCachedItem(state, itemId),
+    isLoading: state.ui.comments.get('loading')
   };
 }
 
