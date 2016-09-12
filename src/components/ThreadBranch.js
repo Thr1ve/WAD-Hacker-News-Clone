@@ -1,16 +1,21 @@
-import React from 'react';
+import { Map } from 'immutable';
+import React, { PropTypes } from 'react';
 import HTMLContent from './HTMLContent';
 
-const ThreadBranch = ({ id = '', text = '', children, collapsed = false }) =>
+const ThreadBranch = ({ item, children }) =>
   <div className="box">
     <div className="content">
-        <p>
-          <strong>ID:</strong> {id}
-          <br />
-          <HTMLContent html={text}/>
-        </p>
+      <br />
+      <strong>{item.get('by')}</strong> says:
+      <br />
+      <HTMLContent html={item.get('text')}/>
+      <small>ID:</small> {item.get('id')}
     </div>
-    {collapsed ? '' : children}
+    {item.get('collapsed') ? '' : children}
   </div>;
+
+ThreadBranch.propTypes = {
+  item: PropTypes.instanceOf(Map)
+};
 
 export default ThreadBranch;

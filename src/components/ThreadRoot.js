@@ -1,12 +1,17 @@
-import React from 'react';
+import { Map } from 'immutable';
+import React, { PropTypes } from 'react';
 
-const ThreadRoot = ({ id, title = 'loading...', text = 'loading', children }) =>
+const ThreadRoot = ({ item, children }) =>
   <div className="box">
-    <strong>{title}</strong>
+    <strong>{item.get('title')}</strong>
     <br />
-    <p>{text}</p>
+    <p>{item.get('text')}</p>
     <br />
     {children}
   </div>;
+
+ThreadRoot.propTypes = {
+  item: PropTypes.instanceOf(Map)
+};
 
 export default ThreadRoot;
