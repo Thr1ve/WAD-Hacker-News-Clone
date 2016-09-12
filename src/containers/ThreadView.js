@@ -17,7 +17,11 @@ const ThreadView = React.createClass({
     const { item, isLoading } = this.props;
     return (
       isLoading ?
-        <div> Loading...</div> :
+        <div className="container has-text-centered">
+          <h1 className="title">
+            Loading Comments...
+          </h1>
+        </div> :
         <ThreadRoot item={item}>
           {
               item.has('kids') &&
