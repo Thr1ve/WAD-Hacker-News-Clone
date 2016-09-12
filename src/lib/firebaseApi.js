@@ -27,7 +27,7 @@ export const fetchFeedIds = (feed = 'TOP') => api.child(FEEDNAMES[feed] || 'TOP'
   .then(snapshot => Promise.resolve(snapshot.val()));
 
 // NOTE: currently unused
-export const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
+// export const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
 
 // is using withMutations faster than just using a normal object and calling .fromJS at the end?
 export const fetchThreadTree = id => {
