@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 import { combineReducers } from 'redux';
 
 import data, { getFeedIds } from './data';
@@ -37,5 +38,10 @@ export const _getKids = (state, id) => {
   return [ ...state.get(id).kids ];
 };
 
+export const _getCachedItem = (state, id) => {
+  return state.get(id) || state.get(Number(id)) || Map({});
+}
+
 export const getAllKnownDescendants = fromDataCache(_getAllKnownDescendants);
 export const getKids = fromDataCache(_getKids);
+export const getCachedItem = fromDataCache(_getCachedItem);
