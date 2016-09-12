@@ -1,5 +1,6 @@
 // referenced https://github.com/insin/react-hn/blob/master/src/services/HNService.js
 
+import { Map } from 'immutable';
 import Firebase from 'firebase';
 
 const FEEDNAMES = {
@@ -27,6 +28,20 @@ export const fetchFeedIds = (feed = 'TOP') => api.child(FEEDNAMES[feed] || 'TOP'
 
 // NOTE: currently unused
 export const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
+
+// is using withMutations faster than just using a normal object and calling .fromJS at the end?
+export const fetchThreadTree = id => {
+  let pending = Map({});
+  function recurse(id) {
+    return fetchItem(id).then(item => {
+      pending = pending.withMutations(v => v.set(Number(id), Map(item)));
+      if (!!item.kids) {
+        return Promise.all(item.kids.map(id => recurse(id)));
+      }
+    });
+  }
+  return recurse(id).then(() => pending.asImmutable());
+};
 
 // The new Firebase API (3.5) requires an apiKey; since there's no way to
 // get one for the public HN API that I've been able to find, we're
