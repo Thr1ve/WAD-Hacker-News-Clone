@@ -1,8 +1,9 @@
+import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { initThreadRoot } from '../actions';
-import { getKids } from '../reducers';
+import { getCachedItem } from '../reducers';
 
 import ThreadRoot from '../components/ThreadRoot';
 import ThreadBranch from '../containers/ThreadBranch';
@@ -13,10 +14,13 @@ const ThreadView = React.createClass({
   },
 
   render() {
-    const { data, kids } = this.props;
+    const { item } = this.props;
     return (
-      <ThreadRoot {...data}>
-        {kids.map((id, i) => <ThreadBranch key={i} id={id} />)}
+      <ThreadRoot item={item}>
+        {
+          item.has('kids') &&
+          item.get('kids').map((id, i) => <ThreadBranch key={i} id={id} />)
+        }
       </ThreadRoot>
     );
   }
@@ -25,14 +29,14 @@ const ThreadView = React.createClass({
 ThreadView.propTypes = {
   params: PropTypes.shape({
     itemId: PropTypes.string.isRequired
-  })
+  }),
+  item: PropTypes.instanceOf(Map)
 };
 
 function mapStateToProps(state, ownProps) {
   const { params: { itemId } } = ownProps;
   return {
-    data: state.data.getIn(['cachedItems', itemId]) || { itemId },
-    kids: getKids(state, itemId)
+    item: getCachedItem(state, itemId),
   };
 }
 
