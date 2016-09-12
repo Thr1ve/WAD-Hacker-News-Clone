@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 import {
   objectifyItemArray, itemArrayToMap,
   fetchFeedIds, fetchItem, fetchItems
@@ -28,7 +29,7 @@ export const getItem = id => (dispatch, getState) => {
 export const getItems = ids => (dispatch, getState) => {
   return fetchItems(ids)
     .then(items => {
-      const asMap = itemArrayToMap(items);
+      const asMap = itemArrayToMap(items, item => Map(item));
       dispatch(receiveItems(asMap))
       return Promise.resolve(items);
     });
@@ -40,7 +41,8 @@ export const getNeededItems = ids => (dispatch, getState) => {
   // filter out any ids we already have in cachedItems
   const neededItems = ids.filter(id => !cachedItems.get(id));
   // fetch only the neededItems
-  if (neededItems.size > 0) {
+  if (neededItems.length > 0 || neededItems.size > 0) {
+  // ^ handle normal array or immutablejs List ^
     return dispatch(getItems(neededItems));
   }
   return Promise.resolve([]);
