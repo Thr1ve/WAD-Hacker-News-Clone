@@ -9,10 +9,6 @@ import ThreadBranch from '../components/ThreadBranch';
 import ThreadBranchContainer from './ThreadBranch';
 
 const _ThreadBranchContainer = React.createClass({
-  componentDidMount() {
-    // this.props.initThread(this.props.id);
-  },
-
   render() {
     const { item } = this.props;
     return (
