@@ -11,7 +11,7 @@ const Footer = () => <div> footer </div>
 // TODO: handle pageNumber here as well
 const Routes = (
   <Route path={'/'} component={App}>
-    <Route path={'/comments/:itemId'} component={{ body: ThreadView, footer: Footer }} />
+    <Route path={'/comments/:itemId'} components={{ body: ThreadView, footer: Footer }} />
     <Route path={'/feed(/:feedName)'} components={{ body: PostsList, footer: PageSelector }} />
     <IndexRedirect to="feed/top" />
   </Route>
