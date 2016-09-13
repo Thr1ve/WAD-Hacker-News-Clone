@@ -2,11 +2,10 @@ import React from 'react';
 import { Route, IndexRedirect } from 'react-router';
 
 import App from '../App';
+import Footer from '../components/Footer.js';
 import PostsList from '../containers/PostsList';
 import PageSelector from '../containers/PageSelector';
 import ThreadView from '../containers/ThreadView';
-
-const Footer = () => <div></div>
 
 const Routes = (
   <Route path={'/'} component={App}>
