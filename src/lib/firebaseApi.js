@@ -20,16 +20,20 @@ export const fetchItem = id => getItemRef(id)
   .once('value')
   .then(snapshot => Promise.resolve(snapshot.val()));
 
-export const fetchItems = ids => Promise.all(ids.map(id => fetchItem(id)));
-
 export const fetchFeedIds = (feed = 'TOP') => api.child(FEEDNAMES[feed] || 'TOP')
   .once('value')
   .then(snapshot => Promise.resolve(snapshot.val()));
 
-// NOTE: currently unused
-// export const fetchFeedItems = feed => fetchFeedIds(feed).then(ids => fetchItems(ids));
-
 // is using withMutations faster than just using a normal object and calling .fromJS at the end?
+export const fetchItemsAsMap = ids => {
+  let pending = Map({});
+  return Promise.all(ids.map(id => {
+    return fetchItem(id).then(item => {
+      pending = pending.withMutations(v => v.set(Number(id), Map(item)));
+    });
+  })).then(() => pending.asImmutable());
+};
+
 export const fetchThreadTree = id => {
   let pending = Map({});
   function recurse(id) {
