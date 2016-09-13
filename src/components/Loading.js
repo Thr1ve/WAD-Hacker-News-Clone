@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Loading = text =>
+const Loading = ({ text }) =>
   <div className="container has-text-centered">
     <h1 className="title">
       {text}

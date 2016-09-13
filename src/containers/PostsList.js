@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { initFeed } from '../actions';
 import PostsList from '../components/PostsList';
-import Loading from './Loading.js';
+import Loading from '../components/Loading.js';
 
 const PostsListContainer = React.createClass({
   componentWillReceiveProps(nextProps) {
