@@ -8,7 +8,6 @@ import ThreadView from '../containers/ThreadView';
 
 const Footer = () => <div></div>
 
-// TODO: handle pageNumber here as well
 const Routes = (
   <Route path={'/'} component={App}>
     <Route path={'/comments/:itemId'} components={{ body: ThreadView, footer: Footer }} />
