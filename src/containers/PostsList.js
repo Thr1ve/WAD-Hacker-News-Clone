@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { initFeed } from '../actions';
 import PostsList from '../components/PostsList';
+import Loading from './Loading.js';
 
 const PostsListContainer = React.createClass({
   componentWillReceiveProps(nextProps) {
@@ -17,7 +18,9 @@ const PostsListContainer = React.createClass({
 
   render() {
     const { isLoading, data, visibleIds } = this.props;
-    return <PostsList isLoading={isLoading} data={data} visibleIds={visibleIds} />;
+    return isLoading ?
+      <Loading text={"Loading Feed..."} /> :
+      <PostsList data={data} visibleIds={visibleIds} />;
   }
 })
 
