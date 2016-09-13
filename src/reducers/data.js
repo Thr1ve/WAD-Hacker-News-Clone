@@ -31,3 +31,31 @@ export default function dataReducer(state = defaultState, action) {
 }
 
 export const getFeedIds = (state, id) => state.getIn(['ids', id]);
+
+// NOTE: this is probably overcomplicating things, but it's a fun use of decorator pattern
+const fromDataCache = fn => (state, ...args) => fn(state.data.get('cachedItems'), ...args);
+
+export const _getAllKnownDescendants = (state, id) => {
+  if (state.get(id) === undefined || state.get(id).kids === undefined) {
+    return [];
+  }
+  return [
+    ...state.get(id).kids,
+    ...state.get(id).kids.reduce((prev, cur) => [ ...prev, ..._getAllKnownDescendants(state, cur)], [])
+  ];
+};
+
+export const _getKids = (state, id) => {
+  if (state.get(id) === undefined || state.get(id).kids === undefined) {
+    return [];
+  }
+  return [ ...state.get(id).kids ];
+};
+
+export const _getCachedItem = (state, id) => {
+  return state.get(id) || state.get(Number(id)) || Map({});
+};
+
+export const getAllKnownDescendants = fromDataCache(_getAllKnownDescendants);
+export const getKids = fromDataCache(_getKids);
+export const getCachedItem = fromDataCache(_getCachedItem);
