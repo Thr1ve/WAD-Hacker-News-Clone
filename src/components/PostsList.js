@@ -6,7 +6,8 @@ import Post from './Post';
 const PostsList = ({ visibleIds, data }) =>
   <div className="container">
     {
-      visibleIds.map((id, i) => data.get(id) ? <Post key={i} post={data.get(id)} /> :
+      visibleIds.map((id, i) => data.get(id) ? 
+        <Post key={i} post={data.get(id)} /> :
         <Post key={i} post={Map({url: "loading", title: "loading"})} />
       )
     }
