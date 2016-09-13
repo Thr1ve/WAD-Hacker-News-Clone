@@ -7,4 +7,8 @@ const Loading = ({ text }) =>
     </h1>
   </div>;
 
+Loading.propTypes = {
+  text: PropTypes.string.isRequired
+};
+
 export default Loading;
