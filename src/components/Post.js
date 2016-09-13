@@ -6,7 +6,7 @@ import HTMLContent from './HTMLContent';
 
 // We could easily make these two functions separate components if needed, but for now that's overkill
 const getTitle = post => !!post.get('url') ?
-  <a href={post.get('url')} target="_blank">{post.get('title')}</a> :
+  <a href={post.get('url')} rel="noopener" target="_blank">{post.get('title')}</a> :
   post.get('title');
 
 const getSubtext = post => !!post.get('url') ? post.get('url') : <HTMLContent html={post.get('text')}/>;
