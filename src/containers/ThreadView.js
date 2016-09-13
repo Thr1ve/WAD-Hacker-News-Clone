@@ -7,6 +7,7 @@ import { getCachedItem } from '../reducers';
 
 import ThreadRoot from '../components/ThreadRoot';
 import ThreadBranch from '../containers/ThreadBranch';
+import Loading from '../components/Loading.js';
 
 const ThreadView = React.createClass({
   componentDidMount() {
@@ -17,11 +18,7 @@ const ThreadView = React.createClass({
     const { item, isLoading } = this.props;
     return (
       isLoading ?
-        <div className="container has-text-centered">
-          <h1 className="title">
-            Loading Comments...
-          </h1>
-        </div> :
+        <Loading text={"Loading Comments..."} /> :
         <ThreadRoot item={item}>
           {
               item.has('kids') &&

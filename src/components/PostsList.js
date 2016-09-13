@@ -2,14 +2,11 @@ import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 
 import Post from './Post';
+import Loading from './Loading.js';
 
 const PostsList = ({ isLoading, visibleIds, data }) =>
   isLoading ?
-    <div className="container has-text-centered">
-      <h1 className="title">
-        Loading Feed...
-      </h1>
-    </div> :
+    <Loading text={"Loading Feed..."} /> :
     <div className="container">
       {
         visibleIds.map((id, i) => data.get(id) ? <Post key={i} post={data.get(id)} /> :
