@@ -20,14 +20,11 @@ const feeds = {
 export const initFeed = (feedName = 'TOP', pageNumber = 1) => (dispatch, getState) => {
   const feed = feeds[feedName];
   if (feed === undefined) {
-    // redirect to TOP
+    // TODO: redirect to TOP
     console.log('UNKNOWN FEED');
   }
-  // set the new feed
   dispatch(setFeed(feed));
-  // remove the currently displayed items
   dispatch(dumpVisibleItemIds());
-  // get the ids for the new feed, then reset to first page
   dispatch(getFeedIds(feed)).then(ids => dispatch(setPage(pageNumber)));
 };
 

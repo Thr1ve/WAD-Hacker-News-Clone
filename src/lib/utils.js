@@ -1,18 +1,3 @@
-import { Map } from 'immutable';
-
-export function objectifyItemArray(arr, cb = v => v) {
-  return arr.reduce((obj, item) => {
-    obj[item.id] = cb(item);
-    return obj;
-  }, {});
-}
-
-export function itemArrayToMap(arr, cb = v => v) {
-  return arr.reduce((obj, item) => {
-    return obj.set(item.id, cb(item));
-  }, Map({}));
-}
-
 export function simpleRange(start, end) {
   if (arguments.length === 1) {
     return Array.from({ length: start }, (v, i) => i + 1);
