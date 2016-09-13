@@ -1,7 +1,6 @@
 import { Map } from 'immutable';
 import {
-  objectifyItemArray, itemArrayToMap,
-  fetchFeedIds, fetchItem, fetchItems
+  itemArrayToMap, fetchFeedIds, fetchItems
 } from '../lib';
 
 export const IS_FETCHING_LIST = 'IS_FETCHING_LIST';
@@ -16,9 +15,6 @@ export const receiveItem = (id, item) => ({ type: RECEIVE_ITEM, id, item });
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
 export const receiveItems = items => ({ type: RECEIVE_ITEMS, items });
 
-// This may seem a little redundant, but I'd like to keep the
-// firebase API as separate as possible from this logic.
-// Currently unused
 // export const getItem = id => (dispatch, getState) => {
 //   return fetchItem(id).then(item => {
 //     dispatch(receiveItem(id, item));
